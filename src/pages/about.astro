@@ -1,0 +1,57 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import Reveal from '../components/react/Reveal';
+---
+
+<Layout title="About | Asha Patel">
+  <section class="section-padding">
+    <div class="mx-auto w-full max-w-container px-6">
+      <Reveal client:visible>
+        <div class="max-w-3xl">
+          <p class="text-sm uppercase tracking-[0.35em] text-white/50">About</p>
+          <h1 class="mt-4 font-heading text-4xl">Security and systems focused CS student</h1>
+          <p class="mt-4 text-white/70">
+            I am a Computer Science student with experience in cybersecurity, Linux systems, research, and product work.
+            My interests sit at the intersection of systems engineering and policy, with a focus on how infrastructure
+            choices shape trust and safety.
+          </p>
+        </div>
+      </Reveal>
+
+      <div class="mt-12 grid gap-8 lg:grid-cols-2">
+        <Reveal client:visible>
+          <div class="glass rounded-2xl p-8">
+            <h2 class="font-heading text-2xl">Focus Areas</h2>
+            <ul class="mt-4 space-y-3 text-sm text-white/70">
+              <li>Network security architecture and segmentation</li>
+              <li>Threat modeling and incident response design</li>
+              <li>Privacy engineering and data minimization</li>
+              <li>Internet governance and policy translation</li>
+            </ul>
+          </div>
+        </Reveal>
+        <Reveal client:visible>
+          <div class="glass rounded-2xl p-8">
+            <h2 class="font-heading text-2xl">Experience Highlights</h2>
+            <ul class="mt-4 space-y-3 text-sm text-white/70">
+              <li>Security lab assistant supporting campus network resilience</li>
+              <li>Policy research contributor for digital rights initiatives</li>
+              <li>Open-source collaborator on privacy tooling</li>
+            </ul>
+          </div>
+        </Reveal>
+      </div>
+
+      <Reveal client:visible>
+        <div class="mt-12">
+          <a
+            href="/resume.pdf"
+            class="inline-flex items-center rounded-xl border border-white/20 px-6 py-3 text-sm text-white/80 transition hover:text-white"
+          >
+            [Download resume (PDF)]
+          </a>
+        </div>
+      </Reveal>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,62 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import ProjectCard from '../components/react/ProjectCard';
+import Reveal from '../components/react/Reveal';
+
+const projects = [
+  {
+    title: 'EdgeShield Segmentation Lab',
+    description: 'Microsegmented lab network simulating zero-trust policy enforcement for campus infrastructure.',
+    tags: ['Zero Trust', 'Routing', 'IaC'],
+  },
+  {
+    title: 'SignalTrace Telemetry',
+    description: 'Privacy-preserving telemetry pipeline for detecting anomalous outbound traffic patterns.',
+    tags: ['Privacy', 'Observability', 'Python'],
+  },
+  {
+    title: 'CivicNet Censorship Map',
+    description: 'Measurement platform correlating regional policy shifts with network-level filtering events.',
+    tags: ['Research', 'Data Policy', 'OSINT'],
+  },
+  {
+    title: 'PolicyGuard Threat Model',
+    description: 'Framework translating governance requirements into layered threat models for civic networks.',
+    tags: ['Threat Modeling', 'Policy', 'Risk'],
+  },
+  {
+    title: 'Quorum DNS Integrity Tests',
+    description: 'Automated testing suite for DNS tampering, resolver drift, and integrity checks.',
+    tags: ['DNS', 'Automation', 'Go'],
+  },
+  {
+    title: 'BlueRoute Failover',
+    description: 'Resilient routing lab focused on multi-path failover and BGP policy validation.',
+    tags: ['BGP', 'Resilience', 'Telemetry'],
+  },
+];
+---
+
+<Layout title="Projects | Asha Patel">
+  <section class="section-padding">
+    <div class="mx-auto w-full max-w-container px-6">
+      <Reveal client:visible>
+        <div class="max-w-2xl">
+          <p class="text-sm uppercase tracking-[0.35em] text-white/50">Projects</p>
+          <h1 class="mt-4 font-heading text-4xl">Security and infrastructure research in motion</h1>
+          <p class="mt-4 text-white/70">
+            These projects combine technical depth with real-world context, spanning privacy automation, network
+            measurement, systems tooling, and applied ML. The focus is on trust, availability, and policy impact.
+          </p>
+        </div>
+      </Reveal>
+      <div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {projects.map((project) => (
+          <Reveal client:visible key={project.title}>
+            <ProjectCard {...project} />
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>

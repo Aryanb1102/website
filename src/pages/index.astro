@@ -1,0 +1,110 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import HeroSection from '../components/react/HeroSection';
+import ProjectCard from '../components/react/ProjectCard';
+import BlogCard from '../components/react/BlogCard';
+import Reveal from '../components/react/Reveal';
+
+const projects = [
+  {
+    title: 'EdgeShield Segmentation Lab',
+    description: 'Microsegmented lab network simulating zero-trust policy enforcement for campus infrastructure.',
+    tags: ['Zero Trust', 'Routing', 'IaC'],
+  },
+  {
+    title: 'SignalTrace Telemetry',
+    description: 'Privacy-preserving telemetry pipeline for detecting anomalous outbound traffic patterns.',
+    tags: ['Privacy', 'Observability', 'Python'],
+  },
+  {
+    title: 'CivicNet Censorship Map',
+    description: 'Measurement platform correlating regional policy shifts with network-level filtering events.',
+    tags: ['Research', 'Data Policy', 'OSINT'],
+  },
+];
+
+const posts = [
+  {
+    title: 'Designing privacy-aware network telemetry for student labs',
+    excerpt: 'Balancing visibility with data minimization when collecting network signals in shared environments.',
+    category: 'Data Privacy',
+    date: 'Jan 12, 2026',
+    href: '/blog/privacy-aware-telemetry',
+  },
+  {
+    title: 'Tracing censorship events with layered measurement',
+    excerpt: 'A practical overview of combining DNS, HTTP, and routing indicators for governance research.',
+    category: 'Tech Policy',
+    date: 'Dec 02, 2025',
+    href: '/blog/measurement-stack',
+  },
+];
+---
+
+<Layout title="Asha Patel | Cybersecurity Portfolio">
+  <HeroSection client:load />
+
+  <section class="section-padding">
+    <div class="mx-auto w-full max-w-container px-6">
+      <Reveal client:visible>
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.35em] text-white/50">Selected Work</p>
+            <h2 class="mt-4 font-heading text-3xl">Projects at the intersection of security and governance</h2>
+          </div>
+          <a href="/projects" class="text-sm text-white/70 transition hover:text-white">
+            Explore all projects →
+          </a>
+        </div>
+      </Reveal>
+      <div class="mt-10 grid gap-6 md:grid-cols-3">
+        {projects.map((project) => (
+          <Reveal client:visible key={project.title}>
+            <ProjectCard {...project} />
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding bg-graphite/40">
+    <div class="mx-auto w-full max-w-container px-6">
+      <Reveal client:visible>
+        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p class="text-sm uppercase tracking-[0.35em] text-white/50">Latest Writing</p>
+            <h2 class="mt-4 font-heading text-3xl">Notes on infrastructure, privacy, and policy</h2>
+          </div>
+          <a href="/blog" class="text-sm text-white/70 transition hover:text-white">
+            View all posts →
+          </a>
+        </div>
+      </Reveal>
+      <div class="mt-10 grid gap-6 md:grid-cols-2">
+        {posts.map((post) => (
+          <Reveal client:visible key={post.title}>
+            <BlogCard {...post} />
+          </Reveal>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section-padding">
+    <div class="mx-auto w-full max-w-container px-6">
+      <Reveal client:visible>
+        <div class="glass-strong gradient-border rounded-2xl p-10 md:p-12">
+          <p class="text-sm uppercase tracking-[0.35em] text-white/50">Currently Building</p>
+          <h2 class="mt-4 font-heading text-3xl">Redact: privacy tooling and censorship resilience</h2>
+          <p class="mt-4 max-w-3xl text-white/70">
+            Redact is a research initiative focused on developing privacy-preserving tooling, monitoring censorship
+            signals, and translating technical findings into actionable policy guidance.
+          </p>
+          <a href="/redact" class="mt-6 inline-flex text-sm text-white/70 transition hover:text-white">
+            Learn more about Redact →
+          </a>
+        </div>
+      </Reveal>
+    </div>
+  </section>
+</Layout>

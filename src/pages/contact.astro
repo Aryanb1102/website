@@ -1,0 +1,31 @@
+﻿---
+import Layout from '../layouts/Layout.astro';
+import ContactForm from '../components/react/ContactForm';
+import Reveal from '../components/react/Reveal';
+---
+
+<Layout title="Contact | Asha Patel">
+  <section class="section-padding">
+    <div class="mx-auto w-full max-w-container px-6">
+      <div class="grid gap-10 lg:grid-cols-[1fr_1.2fr]">
+        <Reveal client:visible>
+          <div>
+            <p class="text-sm uppercase tracking-[0.35em] text-white/50">Contact</p>
+            <h1 class="mt-4 font-heading text-4xl">Let’s talk security, privacy, and infrastructure at scale</h1>
+            <p class="mt-4 text-white/70">
+              I welcome conversations on security engineering, privacy tooling, and resilient infrastructure.
+            </p>
+            <div class="mt-8 space-y-4 text-sm text-white/70">
+              <p>Email: you@example.com</p>
+              <p>GitHub: Aryanb1102</p>
+              <p>LinkedIn: linkedin.com/in/your-handle</p>
+            </div>
+          </div>
+        </Reveal>
+        <Reveal client:visible>
+          <ContactForm />
+        </Reveal>
+      </div>
+    </div>
+  </section>
+</Layout>
