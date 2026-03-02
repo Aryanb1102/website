@@ -5,6 +5,8 @@ import ProjectCard from '../components/react/ProjectCard';
 import BlogCard from '../components/react/BlogCard';
 import Reveal from '../components/react/Reveal';
 
+const base = import.meta.env.BASE_URL;
+
 const projects = [
   {
     title: 'Censorship Detector (India)',
@@ -57,7 +59,7 @@ const posts = [
           <p class="text-sm uppercase tracking-[0.35em] text-white/50">Security Projects</p>
           <h2 class="mt-4 font-heading text-3xl">Projects at the intersection of security and governance</h2>
           </div>
-          <a href="/projects" class="text-sm text-white/70 transition hover:text-white">
+          <a href={`${base}projects`} class="text-sm text-white/70 transition hover:text-white">
             Explore all projects →
           </a>
         </div>
@@ -80,7 +82,7 @@ const posts = [
             <p class="text-sm uppercase tracking-[0.35em] text-white/50">Latest Writing</p>
             <h2 class="mt-4 font-heading text-3xl">Notes on infrastructure, privacy, and policy</h2>
           </div>
-          <a href="/blog" class="text-sm text-white/70 transition hover:text-white">
+          <a href={`${base}blog`} class="text-sm text-white/70 transition hover:text-white">
             View all posts →
           </a>
         </div>
@@ -106,7 +108,7 @@ const posts = [
             regional filtering patterns.
           </p>
           <a
-            href="/projects/censorship-detector-india"
+            href={`${base}projects/censorship-detector-india`}
             class="mt-6 inline-flex text-sm text-white/70 transition hover:text-white"
           >
             View project →

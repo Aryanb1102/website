@@ -1,5 +1,8 @@
 ﻿import { motion } from 'framer-motion';
 
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => (href.match(/^[a-z]+:/) ? href : `${base}${href.replace(/^\//, '')}`);
+
 export default function HeroSection() {
   return (
     <section className="relative overflow-hidden">
@@ -14,7 +17,7 @@ export default function HeroSection() {
           <p className="text-sm uppercase tracking-[0.35em] text-white/50">Security, Systems, Product</p>
           <div className="mt-6 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
             <img
-              src="/images/portrait.jpg"
+              src={`${base}images/portrait.jpg`}
               alt="Aryan Bhandari portrait"
               className="h-52 w-52 rounded-full border border-white/10 object-cover shadow-soft"
             />
@@ -29,13 +32,13 @@ export default function HeroSection() {
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
-              href="/projects"
+              href={withBase('/projects')}
               className="rounded-xl bg-white/10 px-6 py-3 text-sm font-medium text-white transition hover:bg-white/20"
             >
               View Projects
             </a>
             <a
-              href="/blog"
+              href={withBase('/blog')}
               className="rounded-xl border border-white/20 px-6 py-3 text-sm font-medium text-white/80 transition hover:text-white"
             >
               Read the Blog

@@ -1,6 +1,9 @@
 ﻿import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
 
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => (href.match(/^[a-z]+:/) ? href : `${base}${href.replace(/^\//, '')}`);
+
 const links = [
   { name: 'Home', href: '/' },
   { name: 'Projects', href: '/projects' },
@@ -27,14 +30,14 @@ export default function Navbar() {
         className={`transition duration-500 ${scrolled ? 'bg-ink/80 backdrop-blur-lg border-b border-white/10' : 'bg-transparent'} `}
       >
         <div className="mx-auto flex w-full max-w-container items-center justify-between px-6 py-4">
-          <a href="/" className="font-heading text-lg tracking-wide">
+          <a href={withBase('/')} className="font-heading text-lg tracking-wide">
             Aryan | Security &amp; Systems
           </a>
           <nav className="hidden items-center gap-6 text-sm md:flex">
             {links.map((link) => (
               <a
                 key={link.name}
-                href={link.href}
+                href={withBase(link.href)}
                 className="text-white/70 transition hover:text-white"
               >
                 {link.name}
@@ -70,7 +73,7 @@ export default function Navbar() {
                 {links.map((link) => (
                   <a
                     key={link.name}
-                    href={link.href}
+                    href={withBase(link.href)}
                     className="text-base text-white/80 transition hover:text-white"
                     onClick={() => setOpen(false)}
                   >

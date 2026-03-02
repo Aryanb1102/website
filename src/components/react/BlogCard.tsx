@@ -8,12 +8,15 @@ interface BlogCardProps {
   href: string;
 }
 
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => (href.match(/^[a-z]+:/) ? href : `${base}${href.replace(/^\//, '')}`);
+
 export default function BlogCard({ title, excerpt, category, date, href }: BlogCardProps) {
   return (
     <motion.a
       whileHover={{ scale: 1.02 }}
       transition={{ type: 'spring', stiffness: 260, damping: 20 }}
-      href={href}
+      href={withBase(href)}
       className="glass group flex h-full flex-col gap-6 rounded-2xl p-6 transition"
     >
       <div className="flex items-center justify-between text-xs text-white/60">

@@ -7,11 +7,14 @@ interface ProjectCardProps {
   href?: string;
 }
 
+const base = import.meta.env.BASE_URL;
+const withBase = (href: string) => (href.match(/^[a-z]+:/) ? href : `${base}${href.replace(/^\//, '')}`);
+
 export default function ProjectCard({ title, description, tags, href }: ProjectCardProps) {
   if (href) {
     return (
       <motion.a
-        href={href}
+        href={withBase(href)}
         whileHover={{ scale: 1.02 }}
         transition={{ type: 'spring', stiffness: 260, damping: 20 }}
         className="glass group block h-full rounded-2xl p-6 transition"
