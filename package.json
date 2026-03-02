@@ -1,17 +1,17 @@
-{
+﻿{
   "name": "cyber-cs-portfolio",
   "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
     "dev": "astro dev",
-    "build": "astro build",
+    "build": "node ./node_modules/astro/astro.js build",
     "preview": "astro preview"
   },
   "dependencies": {
     "@astrojs/react": "^3.1.2",
     "@astrojs/tailwind": "^5.1.0",
-    "astro": "^5.17.1",
+    "astro": "^4.15.0",
     "framer-motion": "^11.2.10",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
