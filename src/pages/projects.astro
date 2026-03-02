@@ -5,6 +5,20 @@ import Reveal from '../components/react/Reveal';
 
 const projects = [
   {
+    title: 'Censorship Detector (India)',
+    description:
+      'Network-level measurement system detecting DNS tampering, HTTP interference, and regional filtering patterns using distributed probes and anomaly correlation.',
+    tags: ['Network Measurement', 'Censorship', 'DNS/HTTP/TLS', 'Python', 'Policy'],
+    href: '/projects/censorship-detector-india',
+  },
+  {
+    title: 'ML-Based DDoS Intrusion Detection System',
+    description:
+      'Supervised machine learning model classifying DDoS traffic using flow-level features and anomaly detection to reduce false positives in real-time network monitoring.',
+    tags: ['Machine Learning', 'Intrusion Detection', 'Network Security', 'Python'],
+    href: '/projects/ddos-ml-intrusion-detection',
+  },
+  {
     title: 'EdgeShield Segmentation Lab',
     description: 'Microsegmented lab network simulating zero-trust policy enforcement for campus infrastructure.',
     tags: ['Zero Trust', 'Routing', 'IaC'],
@@ -37,7 +51,7 @@ const projects = [
 ];
 ---
 
-<Layout title="Projects | Asha Patel">
+<Layout title="Projects | Aryan">
   <section class="section-padding">
     <div class="mx-auto w-full max-w-container px-6">
       <Reveal client:visible>
@@ -46,7 +60,8 @@ const projects = [
           <h1 class="mt-4 font-heading text-4xl">Security and infrastructure research in motion</h1>
           <p class="mt-4 text-white/70">
             These projects combine technical depth with real-world context, spanning privacy automation, network
-            measurement, systems tooling, and applied ML. The focus is on trust, availability, and policy impact.
+            measurement, systems tooling, and applied ML. The emphasis is on trust, availability, and practical impact
+            for both engineering and product decisions.
           </p>
         </div>
       </Reveal>

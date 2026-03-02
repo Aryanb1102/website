@@ -7,19 +7,24 @@ import Reveal from '../components/react/Reveal';
 
 const projects = [
   {
-    title: 'EdgeShield Segmentation Lab',
-    description: 'Microsegmented lab network simulating zero-trust policy enforcement for campus infrastructure.',
-    tags: ['Zero Trust', 'Routing', 'IaC'],
+    title: 'Censorship Detector (India)',
+    description:
+      'Network-level measurement system detecting DNS tampering, HTTP interference, and regional filtering patterns using distributed probes and anomaly correlation.',
+    tags: ['Network Measurement', 'Censorship', 'DNS/HTTP/TLS', 'Python', 'Policy'],
+    href: '/projects/censorship-detector-india',
   },
   {
-    title: 'SignalTrace Telemetry',
-    description: 'Privacy-preserving telemetry pipeline for detecting anomalous outbound traffic patterns.',
-    tags: ['Privacy', 'Observability', 'Python'],
+    title: 'GRC Automation Tool',
+    description:
+      'Automated compliance workflow mapping security controls to ISO 27001/SOC 2 requirements with risk scoring, evidence tracking, and dashboard reporting.',
+    tags: ['GRC', 'Compliance', 'Risk Assessment', 'Automation'],
   },
   {
-    title: 'CivicNet Censorship Map',
-    description: 'Measurement platform correlating regional policy shifts with network-level filtering events.',
-    tags: ['Research', 'Data Policy', 'OSINT'],
+    title: 'ML-Based DDoS Intrusion Detection System',
+    description:
+      'Supervised machine learning model classifying DDoS traffic using flow-level features and anomaly detection to reduce false positives in real-time network monitoring.',
+    tags: ['Machine Learning', 'Intrusion Detection', 'Network Security', 'Python'],
+    href: '/projects/ddos-ml-intrusion-detection',
   },
 ];
 
@@ -41,7 +46,7 @@ const posts = [
 ];
 ---
 
-<Layout title="Asha Patel | Cybersecurity Portfolio">
+<Layout title="Aryan | Security, Systems, Policy">
   <HeroSection client:load />
 
   <section class="section-padding">
@@ -49,8 +54,8 @@ const posts = [
       <Reveal client:visible>
         <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
           <div>
-            <p class="text-sm uppercase tracking-[0.35em] text-white/50">Selected Work</p>
-            <h2 class="mt-4 font-heading text-3xl">Projects at the intersection of security and governance</h2>
+          <p class="text-sm uppercase tracking-[0.35em] text-white/50">Security Projects</p>
+          <h2 class="mt-4 font-heading text-3xl">Projects at the intersection of security and governance</h2>
           </div>
           <a href="/projects" class="text-sm text-white/70 transition hover:text-white">
             Explore all projects →
@@ -94,14 +99,17 @@ const posts = [
     <div class="mx-auto w-full max-w-container px-6">
       <Reveal client:visible>
         <div class="glass-strong gradient-border rounded-2xl p-10 md:p-12">
-          <p class="text-sm uppercase tracking-[0.35em] text-white/50">Currently Building</p>
-          <h2 class="mt-4 font-heading text-3xl">Redact: privacy tooling and censorship resilience</h2>
+          <p class="text-sm uppercase tracking-[0.35em] text-white/50">Featured Project</p>
+          <h2 class="mt-4 font-heading text-3xl">Censorship Detector (India)</h2>
           <p class="mt-4 max-w-3xl text-white/70">
-            Redact is a research initiative focused on developing privacy-preserving tooling, monitoring censorship
-            signals, and translating technical findings into actionable policy guidance.
+            Mapping digital borders through network measurements that reveal DNS tampering, HTTP interference, and
+            regional filtering patterns.
           </p>
-          <a href="/redact" class="mt-6 inline-flex text-sm text-white/70 transition hover:text-white">
-            Learn more about Redact →
+          <a
+            href="/projects/censorship-detector-india"
+            class="mt-6 inline-flex text-sm text-white/70 transition hover:text-white"
+          >
+            View project →
           </a>
         </div>
       </Reveal>

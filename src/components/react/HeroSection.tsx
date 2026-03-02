@@ -11,13 +11,21 @@ export default function HeroSection() {
       />
       <div className="relative mx-auto flex w-full max-w-container flex-col gap-10 px-6 pb-24 pt-24 md:flex-row md:items-center md:justify-between">
         <div className="max-w-2xl">
-          <p className="text-sm uppercase tracking-[0.35em] text-white/50">Security, Systems, Privacy</p>
-          <h1 className="mt-6 font-heading text-4xl font-semibold leading-tight md:text-5xl">
-            I build security-aware systems at the intersection of infrastructure, privacy, and policy.
-          </h1>
+          <p className="text-sm uppercase tracking-[0.35em] text-white/50">Security, Systems, Product</p>
+          <div className="mt-6 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+            <img
+              src="/images/portrait.jpg"
+              alt="Aryan Bhandari portrait"
+              className="h-52 w-52 rounded-full border border-white/10 object-cover shadow-soft"
+            />
+            <h1 className="font-heading text-4xl font-semibold leading-tight md:text-5xl">
+              Aryan Bhandari
+            </h1>
+          </div>
           <p className="mt-6 text-lg text-white/70">
-            I am interested in Linux systems, cloud security, privacy tooling, and network measurement that connects
-            technical choices to real-world governance.
+            Final-year Computer Science &amp; Entrepreneurship student at Ashoka University building secure systems and
+            privacy-focused products. I specialize in product development, cybersecurity GRC, and product security
+            architecture.
           </p>
           <div className="mt-8 flex flex-wrap gap-4">
             <a
@@ -34,17 +42,7 @@ export default function HeroSection() {
             </a>
           </div>
         </div>
-        <div className="glass-strong relative w-full max-w-md rounded-2xl p-8">
-          <div className="absolute -top-10 right-6 h-24 w-24 rounded-full bg-accentBlue/25 blur-2xl" />
-          <h2 className="font-heading text-xl">Current Focus</h2>
-          <ul className="mt-6 space-y-4 text-sm text-white/70">
-            <li>Security engineering &amp; GRC</li>
-            <li>Linux systems &amp; identity</li>
-            <li>Cloud / infrastructure security</li>
-            <li>Privacy-by-design tooling</li>
-            <li>Network measurement &amp; censorship research</li>
-          </ul>
-        </div>
+        <div className="hidden md:block" />
       </div>
       <div className="relative flex justify-center pb-8">
         <div className="h-10 w-6 rounded-full border border-white/30 p-1">

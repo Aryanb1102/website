@@ -1,0 +1,142 @@
+﻿---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="ML-Based DDoS Intrusion Detection System | Aryan">
+  <section class="section-padding">
+    <div class="mx-auto w-full max-w-container px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm uppercase tracking-[0.35em] text-white/50">Project</p>
+        <h1 class="mt-4 font-heading text-4xl">ML-Based DDoS Intrusion Detection System</h1>
+        <p class="mt-3 text-white/60">
+          Designing a reliable traffic classification system for product-facing network environments.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href="https://github.com/Aryanb1102/DDos-Machine-Learning-Based-Intrusion-Detction-System"
+            target="_blank"
+            rel="noreferrer"
+            class="rounded-xl border border-white/20 px-6 py-3 text-sm font-medium text-white/80 transition hover:text-white"
+          >
+            GitHub repo
+          </a>
+        </div>
+        <div class="article-content mt-10">
+          <h2>Problem Context</h2>
+          <p>
+            Modern web applications depend on uninterrupted availability. Distributed Denial of Service (DDoS) attacks
+            threaten uptime, degrade user experience, and increase infrastructure cost.
+          </p>
+          <p>
+            Traditional rule-based IDS systems struggle against evolving traffic patterns and distributed attack
+            signatures.
+          </p>
+          <p>
+            This project explores how supervised machine learning can enhance detection reliability while maintaining
+            operational stability in real-time environments.
+          </p>
+
+          <h2>System Objective</h2>
+          <p>Build a production-oriented classification pipeline that:</p>
+          <ul>
+            <li>Detects DDoS traffic from flow-level features</li>
+            <li>Minimizes false negatives (missed attacks)</li>
+            <li>Controls false positives (avoiding service disruption)</li>
+            <li>Maintains explainability for incident response teams</li>
+          </ul>
+
+          <h2>Data &amp; Threat Model</h2>
+          <ul>
+            <li>Dataset: CIC-IDS 2017 (Friday Working Hours – DDoS segment)</li>
+            <li>~225K labeled traffic flows</li>
+            <li>70+ flow-level features</li>
+            <li>Binary classification: BENIGN vs DDoS</li>
+          </ul>
+          <p>
+            The threat model assumes volumetric and flow-pattern anomalies without payload inspection, aligning with
+            privacy-preserving monitoring constraints.
+          </p>
+
+          <h2>Architecture &amp; Design Decisions</h2>
+          <p>1. Preprocessing Integrity</p>
+          <ul>
+            <li>Removed NaN/infinite values to avoid unstable inference behavior</li>
+            <li>Preserved feature consistency across train-test splits</li>
+            <li>Used stratified splitting to prevent skewed evaluation</li>
+          </ul>
+          <p>
+            Operational takeaway: inconsistent preprocessing can silently degrade production detection accuracy.
+          </p>
+          <p>2. Model Selection Strategy</p>
+          <p>Three models were evaluated:</p>
+          <ul>
+            <li>Random Forest (ensemble-based, robust to noise)</li>
+            <li>Logistic Regression (interpretable baseline)</li>
+            <li>Neural Network (non-linear modeling capacity)</li>
+          </ul>
+          <p>
+            Scaling was applied selectively (only where required) to avoid distorting tree-based inference.
+          </p>
+
+          <h2>Results &amp; Operational Interpretation</h2>
+          <p>Random Forest</p>
+          <ul>
+            <li>F1: 0.9999</li>
+            <li>AUC: 0.9996</li>
+            <li>Most reliable across metrics.</li>
+            <li>Resilient to feature redundancy.</li>
+            <li>Minimal tuning required.</li>
+          </ul>
+          <p>
+            Operationally attractive due to stability and low sensitivity to scaling errors.
+          </p>
+          <p>Logistic Regression</p>
+          <ul>
+            <li>Recall: ~99.3%</li>
+            <li>Strong at catching attacks but produced more false positives.</li>
+            <li>More interpretable for compliance and audit documentation.</li>
+          </ul>
+          <p>Neural Network</p>
+          <ul>
+            <li>High performance (F1 ~0.984)</li>
+            <li>Slightly higher false positives</li>
+            <li>Would require further tuning and monitoring before production use.</li>
+          </ul>
+
+          <h2>Debugging &amp; Pipeline Validation</h2>
+          <p>
+            An initial AUC discrepancy (~0.60) was traced to improper feature scaling during evaluation.
+          </p>
+          <p>
+            Fixing the preprocessing mismatch restored expected performance.
+          </p>
+          <p>Key insight:</p>
+          <p>
+            In security systems, preprocessing drift can create silent detection failure — monitoring consistency is as
+            critical as model accuracy.
+          </p>
+
+          <h2>Product Security Implications</h2>
+          <p>This project highlights several real-world considerations:</p>
+          <ul>
+            <li>
+              High recall is critical in attack detection, but excessive false positives can trigger unnecessary
+              mitigation actions.
+            </li>
+            <li>Tree-based models provide strong performance without heavy infrastructure requirements.</li>
+            <li>Explainability matters for post-incident review and compliance.</li>
+            <li>Model evaluation must simulate production preprocessing exactly.</li>
+          </ul>
+
+          <h2>Next Steps Toward Production</h2>
+          <ul>
+            <li>Integrate into streaming pipeline (e.g., Kafka-based flow ingestion)</li>
+            <li>Add threshold tuning for business-specific risk tolerance</li>
+            <li>Evaluate under adversarial traffic manipulation</li>
+            <li>Monitor model drift over time</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
