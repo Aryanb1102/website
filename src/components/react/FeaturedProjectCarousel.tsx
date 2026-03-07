@@ -1,8 +1,14 @@
-import { AnimatePresence, motion } from 'framer-motion';
+﻿import { AnimatePresence, motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
 const base = import.meta.env.BASE_URL;
-const withBase = (href: string) => (href.match(/^[a-z]+:/) ? href : `${base}${href.replace(/^\//, '')}`);
+const withBase = (href: string) => {
+  if (href.match(/^[a-z]+:/)) return href;
+  const clean = href.replace(/^\//, '');
+  if (!clean) return base;
+  if (clean.endsWith('/')) return `${base}${clean}`;
+  return `${base}${clean}/`;
+};
 
 const featuredProjects = [
   {
@@ -48,7 +54,7 @@ export default function FeaturedProjectCarousel() {
             <h2 className="font-heading text-3xl">{activeProject.title}</h2>
             <p className="mt-4 max-w-3xl text-white/70">{activeProject.description}</p>
             <a href={withBase(activeProject.href)} className="mt-6 inline-flex text-sm text-white/70 transition hover:text-white">
-              View project →
+              View project {'\u2192'}
             </a>
           </motion.div>
         </AnimatePresence>

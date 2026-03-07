@@ -2,7 +2,13 @@
 import SocialButtons from './SocialButtons';
 
 const base = import.meta.env.BASE_URL;
-const withBase = (href: string) => (href.match(/^[a-z]+:/) ? href : `${base}${href.replace(/^\//, '')}`);
+const withBase = (href: string) => {
+  if (href.match(/^[a-z]+:/)) return href;
+  const clean = href.replace(/^\//, '');
+  if (!clean) return base;
+  if (clean.endsWith('/')) return `${base}${clean}`;
+  return `${base}${clean}/`;
+};
 
 export default function HeroSection() {
   return (
