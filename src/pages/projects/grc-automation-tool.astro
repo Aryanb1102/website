@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="GRC Automation Tool | Aryan">
+  <section class="section-padding">
+    <div class="mx-auto w-full max-w-container px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm uppercase tracking-[0.35em] text-white/50">Project</p>
+        <h1 class="mt-4 font-heading text-4xl">Airflow-Based GRC Automation Pipeline</h1>
+        <p class="mt-3 text-white/60">NIST CM-8 Asset Intelligence · Segregation of Duties · DPDPA Privacy Controls</p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href="https://github.com/Aryanb1102/GRC-Automation-Tool-"
+            target="_blank"
+            rel="noreferrer"
+            class="rounded-xl border border-white/20 px-6 py-3 text-sm font-medium text-white/80 transition hover:text-white"
+          >
+            GitHub repo
+          </a>
+        </div>
+        <div class="article-content mt-10">
+          <h2>Problem Context</h2>
+          <p>
+            Modern organizations operate complex digital environments where security, compliance, and privacy checks
+            must be performed continuously. Teams must verify that infrastructure assets are properly inventoried, user
+            privileges do not create fraud risks, and personal data is handled according to regulatory requirements.
+          </p>
+          <p>
+            These processes are often handled through manual audits or fragmented scripts, leading to delayed detection
+            of violations and weak audit trails. Enterprise GRC tools exist, but they are frequently expensive and
+            difficult to customize.
+          </p>
+          <p>
+            This project explores how workflow orchestration and policy-as-code can automate core compliance controls
+            while maintaining transparency and auditability.
+          </p>
+
+          <h2>System Objective</h2>
+          <p>
+            The goal was to build an automated GRC control engine that continuously executes security and compliance
+            checks across three domains:
+          </p>
+          <ul>
+            <li>Asset Intelligence (NIST CM-8) – maintain accurate infrastructure inventories</li>
+            <li>Identity Governance – detect Segregation of Duties (SoD) violations</li>
+            <li>Data Privacy Compliance – identify and sanitize personal data in development environments</li>
+          </ul>
+          <p>
+            The system emphasizes continuous monitoring, structured evidence generation, and clear traceability between
+            control runs and detected violations.
+          </p>
+
+          <h2>Architecture &amp; Design</h2>
+          <p>
+            The pipeline runs on Apache Airflow inside a Docker environment with a PostgreSQL backend.
+          </p>
+          <p>Airflow DAGs execute compliance controls and produce structured outputs:</p>
+          <p>Control Run → Detection Logic → Findings → Evidence Artifacts → Postgres Storage</p>
+          <p>
+            A control registry (controls.yaml) defines each compliance rule, allowing new controls to be added without
+            modifying core workflow code.
+          </p>
+          <p>PostgreSQL tables store the operational audit trail:</p>
+          <ul>
+            <li>controls – registered governance checks</li>
+            <li>runs – execution history</li>
+            <li>findings – detected violations</li>
+            <li>evidence – generated artifacts</li>
+          </ul>
+          <p>Each run also generates JSON summaries and CSV evidence files.</p>
+
+          <h2>Key Modules</h2>
+          <p>Asset Intelligence</p>
+          <p>
+            Simulates asset inventory ingestion and archival. The pipeline records host metadata and prepares the
+            foundation for future reconciliation against infrastructure scans.
+          </p>
+          <p>Segregation of Duties Detection</p>
+          <p>
+            Evaluates user roles against policy rules to detect toxic privilege combinations such as “Create Vendor +
+            Approve Payment.” Violations are logged with severity and supporting evidence.
+          </p>
+          <p>Privacy Violation Response</p>
+          <p>
+            Scans development datasets for sensitive identifiers (e.g., SSN patterns). Detected values are hashed and
+            sanitized, producing anonymized datasets and violation reports.
+          </p>
+
+          <h2>Operational Insights</h2>
+          <p>
+            The system demonstrates how policy-driven automation can replace periodic audits with continuous compliance
+            monitoring. Evidence generation, persistent findings, and configuration-based controls create a transparent
+            audit trail suitable for security operations and regulatory review.
+          </p>
+
+          <h2>Next Steps</h2>
+          <p>
+            Future improvements include asset reconciliation, retention policy enforcement, alert integrations, and a
+            web dashboard for control monitoring and findings management.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

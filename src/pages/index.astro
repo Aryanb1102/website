@@ -2,8 +2,8 @@
 import Layout from '../layouts/Layout.astro';
 import HeroSection from '../components/react/HeroSection';
 import ProjectCard from '../components/react/ProjectCard';
-import BlogCard from '../components/react/BlogCard';
 import Reveal from '../components/react/Reveal';
+import FeaturedProjectCarousel from '../components/react/FeaturedProjectCarousel';
 
 const base = import.meta.env.BASE_URL;
 
@@ -20,6 +20,7 @@ const projects = [
     description:
       'Automated compliance workflow mapping security controls to ISO 27001/SOC 2 requirements with risk scoring, evidence tracking, and dashboard reporting.',
     tags: ['GRC', 'Compliance', 'Risk Assessment', 'Automation'],
+    href: '/projects/grc-automation-tool',
   },
   {
     title: 'ML-Based DDoS Intrusion Detection System',
@@ -30,22 +31,6 @@ const projects = [
   },
 ];
 
-const posts = [
-  {
-    title: 'Designing privacy-aware network telemetry for student labs',
-    excerpt: 'Balancing visibility with data minimization when collecting network signals in shared environments.',
-    category: 'Data Privacy',
-    date: 'Jan 12, 2026',
-    href: '/blog/privacy-aware-telemetry',
-  },
-  {
-    title: 'Tracing censorship events with layered measurement',
-    excerpt: 'A practical overview of combining DNS, HTTP, and routing indicators for governance research.',
-    category: 'Tech Policy',
-    date: 'Dec 02, 2025',
-    href: '/blog/measurement-stack',
-  },
-];
 ---
 
 <Layout title="Aryan | Security, Systems, Policy">
@@ -74,45 +59,11 @@ const posts = [
     </div>
   </section>
 
-  <section class="section-padding bg-graphite/40">
-    <div class="mx-auto w-full max-w-container px-6">
-      <Reveal client:visible>
-        <div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p class="text-sm uppercase tracking-[0.35em] text-white/50">Latest Writing</p>
-            <h2 class="mt-4 font-heading text-3xl">Notes on infrastructure, privacy, and policy</h2>
-          </div>
-          <a href={`${base}blog`} class="text-sm text-white/70 transition hover:text-white">
-            View all posts →
-          </a>
-        </div>
-      </Reveal>
-      <div class="mt-10 grid gap-6 md:grid-cols-2">
-        {posts.map((post) => (
-          <Reveal client:visible key={post.title}>
-            <BlogCard {...post} />
-          </Reveal>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <section class="section-padding">
     <div class="mx-auto w-full max-w-container px-6">
       <Reveal client:visible>
         <div class="glass-strong gradient-border rounded-2xl p-10 md:p-12">
-          <p class="text-sm uppercase tracking-[0.35em] text-white/50">Featured Project</p>
-          <h2 class="mt-4 font-heading text-3xl">Censorship Detector (India)</h2>
-          <p class="mt-4 max-w-3xl text-white/70">
-            Mapping digital borders through network measurements that reveal DNS tampering, HTTP interference, and
-            regional filtering patterns.
-          </p>
-          <a
-            href={`${base}projects/censorship-detector-india`}
-            class="mt-6 inline-flex text-sm text-white/70 transition hover:text-white"
-          >
-            View project →
-          </a>
+          <FeaturedProjectCarousel client:load />
         </div>
       </Reveal>
     </div>

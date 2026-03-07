@@ -1,0 +1,144 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Cluless Context-Aware Digital Closet | Aryan">
+  <section class="section-padding">
+    <div class="mx-auto w-full max-w-container px-6">
+      <div class="max-w-3xl">
+        <p class="text-sm uppercase tracking-[0.35em] text-white/50">Project</p>
+        <h1 class="mt-4 font-heading text-4xl">Cluless Context-Aware Digital Closet</h1>
+        <p class="mt-3 text-white/60">
+         
+        </p>
+        <div class="article-content mt-10">
+          <p></p>
+          <p>Turning wardrobes into intelligent outfit recommendations.</p>
+          <p>
+            Cluless is a mobile-first web application that helps users decide what to wear by digitizing their wardrobe
+            and generating outfit suggestions based on context such as weather, occasion, and personal style
+            preferences.
+          </p>
+          <p>
+            The idea came from a simple but common problem: many people own large wardrobes yet still struggle with
+            daily outfit decisions. Most fashion platforms focus on inspiration (Pinterest, Instagram), but they rarely
+            translate those ideas into practical suggestions using clothes people already own.
+          </p>
+          <p>
+            Cluless addresses this gap by combining wardrobe management with a lightweight recommendation system that
+            generates outfit suggestions tailored to the user's actual clothing items.
+          </p>
+
+          <h2>Problem</h2>
+          <p>
+            People often experience decision fatigue when choosing what to wear. Even with many clothing options,
+            selecting an outfit that fits the weather, occasion, and personal style can take unnecessary time.
+          </p>
+          <p>Existing solutions have limitations:</p>
+          <ul>
+            <li>Inspiration platforms provide ideas but don't consider a user's wardrobe.</li>
+            <li>Closet management apps track inventory but rarely provide intelligent recommendations.</li>
+            <li>Weather apps provide environmental context but don't translate it into clothing decisions.</li>
+          </ul>
+          <p>
+            There is an opportunity to create a system that connects these elements into a single decision-support
+            tool.
+          </p>
+
+          <h2>Solution</h2>
+          <p>
+            Cluless digitizes a user's wardrobe and generates outfit combinations that fit their context.
+          </p>
+          <p>Users can:</p>
+          <ul>
+            <li>Upload clothing items into a digital closet.</li>
+            <li>Receive outfit suggestions based on weather conditions.</li>
+            <li>Provide feedback on recommendations so the system improves over time.</li>
+          </ul>
+          <p>
+            The goal is to move from simple wardrobe storage to a context-aware personal style assistant.
+          </p>
+
+          <h2>Key Features</h2>
+          <p>Digital Closet</p>
+          <p>
+            Users upload and manage clothing items through a simple mobile interface. Each item is categorized and
+            stored as part of the user's personal wardrobe inventory.
+          </p>
+          <p>Weather-Aware Outfit Suggestions</p>
+          <p>
+            The system integrates weather data and filters wardrobe items based on warmth and formality attributes to
+            generate appropriate outfit combinations.
+          </p>
+          <p>Feedback-Based Learning</p>
+          <p>
+            Users can provide feedback on generated outfits (like, dislike, too hot, too formal). This feedback is used
+            to adjust future recommendations.
+          </p>
+          <p>Mobile-First Design</p>
+          <p>
+            The application is built as a Progressive Web App designed for quick daily use, optimized for mobile
+            devices.
+          </p>
+
+          <h2>Product Thinking</h2>
+          <p>
+            Cluless focuses on actionable recommendations rather than passive inspiration. Instead of showing endless
+            outfit images, the system works with the user's existing wardrobe to generate combinations that are
+            immediately usable.
+          </p>
+          <p>The product follows a simple loop:</p>
+          <ul>
+            <li>Digitize wardrobe</li>
+            <li>Generate outfit suggestions</li>
+            <li>Collect feedback</li>
+            <li>Improve recommendations</li>
+          </ul>
+          <p>
+            This feedback loop allows the system to gradually learn a user's style preferences.
+          </p>
+
+          <h2>Technology</h2>
+          <p>Frontend:</p>
+          <ul>
+            <li>Next.js (Progressive Web App)</li>
+            <li>TypeScript</li>
+            <li>Tailwind CSS</li>
+          </ul>
+          <p>Backend:</p>
+          <ul>
+            <li>Supabase (authentication, database, and storage)</li>
+          </ul>
+          <p>External APIs:</p>
+          <ul>
+            <li>Weather API for contextual recommendations.</li>
+          </ul>
+          <p>
+            The architecture prioritizes fast iteration and a lightweight infrastructure suitable for early-stage
+            product development.
+          </p>
+
+          <h2>Future Direction</h2>
+          <p>Future iterations of Cluless could expand beyond basic outfit generation to include:</p>
+          <ul>
+            <li>wardrobe analytics</li>
+            <li>trend-to-closet mapping</li>
+            <li>packing assistants for travel</li>
+            <li>style preference modeling</li>
+            <li>wardrobe gap detection</li>
+          </ul>
+          <p>
+            The long-term vision is to build a personal style intelligence system that helps users better understand
+            and utilize their wardrobes.
+          </p>
+
+          <h2>Status</h2>
+          <p>
+            Currently in active development as an MVP, with a focus on validating user engagement and improving
+            recommendation quality through user feedback.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

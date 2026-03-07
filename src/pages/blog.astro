@@ -1,12 +1,6 @@
 ﻿---
 import Layout from '../layouts/Layout.astro';
-import BlogCard from '../components/react/BlogCard';
 import Reveal from '../components/react/Reveal';
-import { getCollection } from 'astro:content';
-
-const posts = (await getCollection('blog')).sort(
-  (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-);
 ---
 
 <Layout title="Blog | Aryan">
@@ -17,23 +11,10 @@ const posts = (await getCollection('blog')).sort(
           <p class="text-sm uppercase tracking-[0.35em] text-white/50">Blog</p>
           <h1 class="mt-4 font-heading text-4xl">Writing on security, systems, and the internet</h1>
           <p class="mt-4 text-white/70">
-            Notes, reflections, and project write-ups on systems security and internet infrastructure.
+            This section remains active, but the public post listing is currently hidden.
           </p>
         </div>
       </Reveal>
-      <div class="mt-12 grid gap-6 md:grid-cols-2">
-        {posts.map((post) => (
-          <Reveal client:visible key={post.slug}>
-            <BlogCard
-              title={post.data.title}
-              excerpt={post.data.description}
-              category={post.data.category}
-              date={post.data.date}
-              href={`/blog/${post.slug}`}
-            />
-          </Reveal>
-        ))}
-      </div>
     </div>
   </section>
 </Layout>
