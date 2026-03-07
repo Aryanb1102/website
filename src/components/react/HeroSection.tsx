@@ -1,4 +1,5 @@
 ﻿import { motion } from 'framer-motion';
+import SocialButtons from './SocialButtons';
 
 const base = import.meta.env.BASE_URL;
 const withBase = (href: string) => (href.match(/^[a-z]+:/) ? href : `${base}${href.replace(/^\//, '')}`);
@@ -43,6 +44,9 @@ export default function HeroSection() {
             >
               Read the Blog
             </a>
+          </div>
+          <div className="mt-4">
+            <SocialButtons size="md" />
           </div>
         </div>
         <div className="hidden md:block" />
