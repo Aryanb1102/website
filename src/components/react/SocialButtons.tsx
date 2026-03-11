@@ -1,5 +1,6 @@
 interface SocialButtonsProps {
   size?: 'sm' | 'md';
+  showLetterboxd?: boolean;
 }
 
 const buttonSizeClasses: Record<NonNullable<SocialButtonsProps['size']>, string> = {
@@ -12,7 +13,7 @@ const iconSizeClasses: Record<NonNullable<SocialButtonsProps['size']>, string> =
   md: 'h-6 w-6',
 };
 
-export default function SocialButtons({ size = 'md' }: SocialButtonsProps) {
+export default function SocialButtons({ size = 'md', showLetterboxd = false }: SocialButtonsProps) {
   const buttonSize = buttonSizeClasses[size];
   const iconSize = iconSizeClasses[size];
 
@@ -40,6 +41,19 @@ export default function SocialButtons({ size = 'md' }: SocialButtonsProps) {
           <path d="M4.98 3.5A2.5 2.5 0 1 0 5 8.5 2.5 2.5 0 0 0 4.98 3.5ZM3 9h4v12H3V9Zm7 0h3.84v1.71h.05c.53-1.01 1.83-2.08 3.77-2.08 4.03 0 4.77 2.65 4.77 6.09V21h-4v-5.54c0-1.32-.02-3.02-1.84-3.02-1.84 0-2.12 1.44-2.12 2.93V21h-4V9Z" />
         </svg>
       </a>
+      {showLetterboxd && (
+        <a
+          href="https://letterboxd.com/martymcdrive/"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Letterboxd profile"
+          className={`glass inline-flex ${buttonSize} items-center justify-center rounded-full text-white/80 transition hover:text-white`}
+        >
+          <svg viewBox="0 0 24 24" className={iconSize} aria-hidden="true" fill="currentColor">
+            <path d="M6.25 6.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Zm5.75 0a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Zm5.75 0a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11Z" />
+          </svg>
+        </a>
+      )}
     </div>
   );
 }

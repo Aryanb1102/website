@@ -1,0 +1,57 @@
+﻿<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="520" viewBox="0 0 1200 520">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0d12"/>
+      <stop offset="1" stop-color="#121622"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#4f7cff" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#7b61ff" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="1200" height="520" rx="28" fill="url(#bg)"/>
+  <rect x="24" y="24" width="1152" height="472" rx="22" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.10"/>
+
+  <text x="64" y="96" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="28" font-weight="600">Flow-Level Classification Pipeline</text>
+  <text x="64" y="132" fill="#ffffff" fill-opacity="0.65" font-family="Inter, system-ui, sans-serif" font-size="16">CIC-IDS 2017 → Clean → Split → Train → Evaluate → Debug</text>
+
+  <!-- boxes -->
+  <g font-family="Inter, system-ui, sans-serif" font-size="14">
+    <rect x="64" y="190" width="200" height="80" rx="18" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.10"/>
+    <text x="84" y="225" fill="#ffffff" font-weight="600">Dataset</text>
+    <text x="84" y="250" fill="#ffffff" fill-opacity="0.65">CIC-IDS 2017</text>
+
+    <rect x="316" y="190" width="200" height="80" rx="18" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.10"/>
+    <text x="336" y="225" fill="#ffffff" font-weight="600">Cleaning</text>
+    <text x="336" y="250" fill="#ffffff" fill-opacity="0.65">NaN/Inf, dupes</text>
+
+    <rect x="568" y="190" width="200" height="80" rx="18" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.10"/>
+    <text x="588" y="225" fill="#ffffff" font-weight="600">Split</text>
+    <text x="588" y="250" fill="#ffffff" fill-opacity="0.65">Stratified 70/30</text>
+
+    <rect x="820" y="190" width="200" height="80" rx="18" fill="#ffffff" fill-opacity="0.04" stroke="#ffffff" stroke-opacity="0.10"/>
+    <text x="840" y="225" fill="#ffffff" font-weight="600">Models</text>
+    <text x="840" y="250" fill="#ffffff" fill-opacity="0.65">RF · LR · MLP</text>
+
+    <rect x="1072" y="190" width="64" height="80" rx="18" fill="url(#accent)" fill-opacity="0.18" stroke="#ffffff" stroke-opacity="0.14"/>
+  </g>
+
+  <!-- arrows -->
+  <g stroke="#ffffff" stroke-opacity="0.25" stroke-width="2" fill="none">
+    <path d="M264 230 H316"/>
+    <path d="M516 230 H568"/>
+    <path d="M768 230 H820"/>
+    <path d="M1020 230 H1072"/>
+  </g>
+  <g fill="#ffffff" fill-opacity="0.35">
+    <path d="M308 230 l-10 -6 v12 z"/>
+    <path d="M560 230 l-10 -6 v12 z"/>
+    <path d="M812 230 l-10 -6 v12 z"/>
+    <path d="M1064 230 l-10 -6 v12 z"/>
+  </g>
+
+  <text x="1086" y="235" fill="#ffffff" fill-opacity="0.85" font-family="Inter, system-ui, sans-serif" font-size="18" font-weight="700">✓</text>
+
+  <text x="64" y="380" fill="#ffffff" font-family="Inter, system-ui, sans-serif" font-size="14" fill-opacity="0.65">Note: preprocessing consistency matters as much as model choice.</text>
+</svg>

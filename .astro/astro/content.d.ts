@@ -141,26 +141,19 @@ declare module 'astro:content' {
 
 	type ContentEntryMap = {
 		"blog": {
-"measurement-stack.md": {
-	id: "measurement-stack.md";
-  slug: "measurement-stack";
+"teaching-a-model-to-recognize-a-ddos-attack.md": {
+	id: "teaching-a-model-to-recognize-a-ddos-attack.md";
+  slug: "teaching-a-model-to-recognize-a-ddos-attack";
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">
+  data: any
 } & { render(): Render[".md"] };
-"privacy-aware-telemetry.md": {
-	id: "privacy-aware-telemetry.md";
-  slug: "privacy-aware-telemetry";
+"whatever-happened-to-jailbreaking.md": {
+	id: "whatever-happened-to-jailbreaking.md";
+  slug: "whatever-happened-to-jailbreaking";
   body: string;
   collection: "blog";
-  data: InferEntrySchema<"blog">
-} & { render(): Render[".md"] };
-"zero-trust-segmentation.md": {
-	id: "zero-trust-segmentation.md";
-  slug: "zero-trust-segmentation";
-  body: string;
-  collection: "blog";
-  data: InferEntrySchema<"blog">
+  data: any
 } & { render(): Render[".md"] };
 };
 
@@ -172,5 +165,5 @@ declare module 'astro:content' {
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("./../../src/content/config.js");
+	export type ContentConfig = never;
 }
